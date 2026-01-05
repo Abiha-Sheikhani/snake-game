@@ -1,0 +1,130 @@
+ body {
+      background: #111;
+      color: #0f0;
+      font-family: monospace;
+      text-align: center;
+    }
+
+    canvas {
+      background: #000;
+      display: block;
+      margin: 20px auto;
+      border: 3px solid #0f0;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    /* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0f2027, #000);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Courier New", monospace;
+  color: #9aff9a;
+}
+
+/* ===== TITLE ===== */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 8px #00ff88;
+}
+
+/* ===== SCORE ===== */
+#score {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  padding: 6px 14px;
+  border: 1px solid #00ff88;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* ===== GAME CONTAINER ===== */
+canvas {
+  background:
+    linear-gradient(transparent 19px, rgba(0, 255, 0, 0.08) 20px),
+    linear-gradient(90deg, transparent 19px, rgba(0, 255, 0, 0.08) 20px),
+    #000;
+  background-size: 20px 20px;
+  border: 4px solid #00ff88;
+  border-radius: 10px;
+  box-shadow:
+    0 0 20px rgba(0, 255, 136, 0.5),
+    inset 0 0 10px rgba(0, 255, 136, 0.3);
+}
+
+/* ===== BUTTON ===== */
+button {
+  margin-top: 18px;
+  margin-bottom: 18px;
+  padding: 10px 26px;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #000;
+  background: linear-gradient(135deg, #00ff88, #00cc66);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 0 #00994d;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 0 #00994d;
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 #00994d;
+}
+
+/* ===== GAME OVER FLASH (OPTIONAL) ===== */
+.game-over {
+  animation: flash 0.5s alternate infinite;
+}
+
+@keyframes flash {
+  from {
+    box-shadow: 0 0 10px red;
+  }
+  to {
+    box-shadow: 0 0 30px red;
+  }
+}
+/* ===== GAME OVER EFFECT ===== */
+canvas.game-over {
+  animation: dangerFlash 0.4s ease-in-out 3;
+}
+
+@keyframes dangerFlash {
+  0% {
+    box-shadow: 0 0 0 rgba(255, 0, 0, 0);
+    background-color: #0b0d14;
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(255, 80, 80, 0.9);
+    background-color: #220b0b;
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(255, 0, 0, 0);
+    background-color: #0b0d14;
+  }
+}
