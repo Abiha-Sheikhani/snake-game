@@ -1,1 +1,1 @@
-# snake-game
+#  Practising js through snake-game
