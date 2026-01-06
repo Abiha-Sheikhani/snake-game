@@ -44,6 +44,33 @@ function changeDirection(e) {
   else if (e.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
   else if (e.key === "ArrowDown" && direction !== "UP") direction = "DOWN";
 }
+// ===== MOBILE SWIPE CONTROLS =====
+let touchStartX = 0;
+let touchStartY = 0;
+
+canvas.addEventListener("touchstart", function (e) {
+  const touch = e.touches[0];
+  touchStartX = touch.clientX;
+  touchStartY = touch.clientY;
+});
+
+canvas.addEventListener("touchend", function (e) {
+  const touch = e.changedTouches[0];
+  const touchEndX = touch.clientX;
+  const touchEndY = touch.clientY;
+
+  const dx = touchEndX - touchStartX;
+  const dy = touchEndY - touchStartY;
+
+  // Decide swipe direction
+  if (Math.abs(dx) > Math.abs(dy)) {
+    if (dx > 0 && direction !== "LEFT") direction = "RIGHT";
+    else if (dx < 0 && direction !== "RIGHT") direction = "LEFT";
+  } else {
+    if (dy > 0 && direction !== "UP") direction = "DOWN";
+    else if (dy < 0 && direction !== "DOWN") direction = "UP";
+  }
+});
 
 // ===== COLLISION CHECK =====
 function collision(head, body) {
