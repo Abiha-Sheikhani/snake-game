@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Snake Xenzia</title>
- <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Snake Game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <h1>Snake Xenzia</h1>
   <h2 id="score">Score: 0</h2>
 
-  <canvas id="game" width="400" height="400"></canvas>
+  <div class="game-wrapper">
+    <canvas id="game" width="400" height="400"></canvas>
 
-  <button onclick="restartGame()">Restart</button>
+    <!-- GAME OVER OVERLAY -->
+    <div id="gameOverScreen" class="hidden">
+      <h1>Game Over</h1>
+      <p id="finalScore"></p>
+      <button onclick="restartGame()">Restart</button>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
